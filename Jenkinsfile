@@ -14,7 +14,10 @@ pipeline {
         git 'https://github.com/TEJA176/nodeapp_test.git'
       }
     }
-
+ stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     stage('Build image') {
       steps{
         script {
