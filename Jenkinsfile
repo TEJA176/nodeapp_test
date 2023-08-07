@@ -6,9 +6,7 @@ pipeline {
     dockerImage = ""
   }
 
-  agent {
-    label 'Jenkins-new-slave-java11-8084'
-  }
+
 
   stages {
 
