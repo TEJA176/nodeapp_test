@@ -6,18 +6,20 @@ pipeline {
     dockerImage = ""
   }
 
- agent none
+  agent {
+    label 'Jenkins-new-slave-java11-8084'
+  }
 
   stages {
 
     stage('Checkout Source') {
-       node('Jenkins-new-slave-java11-8084')
+      
       steps {
-        node('Jenkins-new-slave-java11-8084'){
+       
         git 'https://github.com/TEJA176/nodeapp_test.git'
       }
     }
-    }
+    
     stage('Build image') {
       steps{
         script {
