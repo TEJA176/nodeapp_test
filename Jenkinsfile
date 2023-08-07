@@ -1,5 +1,5 @@
 pipeline {
-
+agent any
   environment {
 
     dockerimagename = "tejendranadu/nodeapp"
