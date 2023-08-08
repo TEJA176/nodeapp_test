@@ -42,7 +42,7 @@ agent any
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          sh ' chown -R jenkins:jenkins deployment.yml'
+          
           sh 'kubectl apply -f deployment.yml'
         }
       }
