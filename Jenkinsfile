@@ -42,7 +42,7 @@ agent any
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          sh ' su jenkins'
+          sh ' sudo su - jenkins'
           sh 'kubectl apply -f deployment.yml'
         }
       }
