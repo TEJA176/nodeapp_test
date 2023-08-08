@@ -42,8 +42,9 @@ agent any
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          
-          sh 'kubectl apply -f deployment.yml'
+          sh 'kubectl --version'
+          sh 'cluster-info'
+          sh 'kubectl apply -f deployment.yml --context kubernetes'
         }
       }
     }
