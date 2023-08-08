@@ -42,7 +42,7 @@ agent any
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          sh 'kubectl apply -f deployment.yml --context EKScluster_terraform'
+          sh 'kubectl apply -f deployment.yml --context kubernetes'
         }
       }
     }
