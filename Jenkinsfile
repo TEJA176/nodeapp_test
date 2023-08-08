@@ -42,7 +42,7 @@ agent any
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          sh 'kubectl apply -f deployment.yml'
+          sh 'kubectl apply -f deployment.yml --context eksctl-testcluster-cluster/NATIP'
         }
       }
     }
