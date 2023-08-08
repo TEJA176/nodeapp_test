@@ -1,14 +1,14 @@
 pipeline {
 agent any
   environment {
-
+            AWS_ACCESS_KEY_ID = AKIAQUHKOX7KLWMOBOWH
+        AWS_SECRET_ACCESS_KEY = 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
+        AWS_DEFAULT_REGION = "us-east-1"
     dockerimagename = "tejendranaidu/demo"
     dockerImage = ""
   }
 
-
-
-  stages {
+   stages {
 
     stage('Checkout Source') {
       
