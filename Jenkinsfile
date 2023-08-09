@@ -1,9 +1,9 @@
 pipeline {
 agent any
   environment {
-        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    AWS_DEFAULT_REGION = "us-east-1"
+    //     AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+    //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    // AWS_DEFAULT_REGION = "us-east-1"
     dockerimagename = "tejendranaidu/demo"
     dockerImage = ""
   }
@@ -39,13 +39,11 @@ agent any
       }
     }
 
-    stage('Deploying App to Kubernetes') {
-      steps {
-        script {
-          sh 'kubectl get pods'
-        }
-      }
+   stage('Apply Kubernetes files') {
+    withKubeConfig([credentialsId: 'k8scred', serverUrl: 'https://172.31.15.134:6443']) {
+      sh 'kubectl apply -f deployment.yml'
     }
+  }
 
   }
 
