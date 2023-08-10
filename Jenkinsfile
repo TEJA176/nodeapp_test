@@ -46,7 +46,7 @@ agent any
    //      // AWS_DEFAULT_REGION = "us-east-1"
    // }
      steps{
-      sh 'kubectl get pods'
+      sh 'kubectl -f deployment.yml'
     }
   }
 
