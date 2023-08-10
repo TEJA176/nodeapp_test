@@ -1,9 +1,7 @@
 pipeline {
 agent any
   environment {
-    //     AWS_ACCESS_KEY_ID = credentials('')
-    //     AWS_SECRET_ACCESS_KEY = credentials('')
-    // AWS_DEFAULT_REGION = "us-east-1"
+
     dockerimagename = "tejendranaidu/demo"
     dockerImage = ""
   }
@@ -40,11 +38,7 @@ agent any
     }
 
    stage('Deploy to EKS') {
-   // environment{
-   //      // AWS_ACCESS_KEY_ID = credentials('k8s deployment')
-   //      // AWS_SECRET_ACCESS_KEY = credentials('k8s deployment')
-   //      // AWS_DEFAULT_REGION = "us-east-1"
-   // }
+
      steps{
       sh 'kubectl apply -f deployment.yml'
     }
