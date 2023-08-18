@@ -1,5 +1,5 @@
 pipeline {
-agent any
+agent { label 'Jenkins-new-slave-8083'}
   environment {
 
     dockerimagename = "tejendranaidu/demo"
